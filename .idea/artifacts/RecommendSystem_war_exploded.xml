@@ -1,0 +1,27 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="RecommendSystem:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="RecommendSystem" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-spark_2.10-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-spark_2.10-0.13.0-dependency-reduced.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-native-viennacl_2.10-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-native-viennacl-omp_2.10-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-mr-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-mr-0.13.0-job.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-math-scala_2.10-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-math-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-integration-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-hdfs-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-examples-0.13.0.jar" />
+          <element id="file-copy" path="$USER_HOME$/Desktop/apache-mahout-distribution-0.13.0/mahout-examples-0.13.0-job.jar" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="RecommendSystem/web/Web" />
+    </root>
+  </artifact>
+</component>

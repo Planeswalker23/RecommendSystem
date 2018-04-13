@@ -1,0 +1,17 @@
+<component name="libraryTable">
+  <library name="mysql-connector-java-5.1.17">
+    <CLASSES>
+      <root url="jar://F:/tomcat9/lib/jsp-api.jar!/" />
+      <root url="jar://F:/tomcat9/lib/servlet-api.jar!/" />
+      <root url="jar://F:/googledownload/json-lib依赖jar包/commons-beanutils-1.8.0.jar!/" />
+      <root url="jar://F:/googledownload/json-lib依赖jar包/commons-collections-3.2.1.jar!/" />
+      <root url="jar://F:/googledownload/json-lib依赖jar包/commons-lang-2.5.jar!/" />
+      <root url="jar://F:/googledownload/json-lib依赖jar包/commons-logging-1.1.1.jar!/" />
+      <root url="jar://F:/googledownload/json-lib依赖jar包/ezmorph-1.0.6.jar!/" />
+      <root url="jar://F:/googledownload/json-lib依赖jar包/json-lib-2.4-jdk15.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/mysql-connector-java-5.1.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
