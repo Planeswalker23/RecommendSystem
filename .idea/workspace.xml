@@ -6,80 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="29376157-fddc-4cd5-a5a6-7777874d4598" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/recommend.sql" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/WEB-INF/classes/recommend/Filter.class" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/WEB-INF/classes/recommend/Filter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/RecommendSystem/recommend/Filter.class" afterPath="$PROJECT_DIR$/out/production/RecommendSystem/recommend/Filter.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/RecommendSystem_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/RecommendSystem_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/18147872-d479-40b5-9e5e-689ade982579.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/18147872-d479-40b5-9e5e-689ade982579.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_17.xml" afterPath="$PROJECT_DIR$/.idea/libraries/mysql_connector_java_5_1_17.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/MANIFEST.MF" afterPath="$PROJECT_DIR$/META-INF/MANIFEST.MF" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/RecommendSystem.iml" afterPath="$PROJECT_DIR$/RecommendSystem.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles-display.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles-display.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles-list.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles-recommend.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles-recommend.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_cultural.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_cultural.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_education.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_education.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_entertainment.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_entertainment.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_films.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_films.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_game.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_game.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_physical.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_physical.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_science.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_science.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_society.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/articles_type_society.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/assets/css/form-elements.css" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/assets/css/form-elements.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/assets/js/placeholder.js" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/assets/js/placeholder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/css/custom5152.html" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/css/custom5152.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/css/style.css" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/logout.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/logout.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/my.jsp" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/my.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/type.txt" afterPath="$PROJECT_DIR$/out/artifacts/RecommendSystem_war_exploded/type.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageCulturalServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageCulturalServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageEducationServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageEducationServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageEntertainmentServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageEntertainmentServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageFilmsServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageFilmsServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageGameServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageGameServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePagePhysicalServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePagePhysicalServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageRecommendServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageRecommendServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageScienceServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageScienceServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangePageSocietyServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangePageSocietyServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ChangeUserInforServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ChangeUserInforServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/LogClickedLikeServlet.java" afterPath="$PROJECT_DIR$/src/DAO/LogClickedLikeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/LogClickedUnLikeServlet.java" afterPath="$PROJECT_DIR$/src/DAO/LogClickedUnLikeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/ReadTimeServlet.java" afterPath="$PROJECT_DIR$/src/DAO/ReadTimeServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/UserServlet.java" afterPath="$PROJECT_DIR$/src/DAO/UserServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/DAO/loginServlet.java" afterPath="$PROJECT_DIR$/src/DAO/loginServlet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/entity/User.java" afterPath="$PROJECT_DIR$/src/entity/User.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/recommend/DB_io.java" afterPath="$PROJECT_DIR$/src/recommend/DB_io.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/recommend/Filter.java" afterPath="$PROJECT_DIR$/src/recommend/Filter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/recommend/Similarity.java" afterPath="$PROJECT_DIR$/src/recommend/Similarity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/DataSet.java" afterPath="$PROJECT_DIR$/src/tool/DataSet.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/GetJsonText.java" afterPath="$PROJECT_DIR$/src/tool/GetJsonText.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/GetTitleById.java" afterPath="$PROJECT_DIR$/src/tool/GetTitleById.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/GetUserInfor.java" afterPath="$PROJECT_DIR$/src/tool/GetUserInfor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/NewsList.java" afterPath="$PROJECT_DIR$/src/tool/NewsList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/tool/page.java" afterPath="$PROJECT_DIR$/src/tool/page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/util/DBUtil.java" afterPath="$PROJECT_DIR$/src/util/DBUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles-display.jsp" afterPath="$PROJECT_DIR$/web/articles-display.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles-list.jsp" afterPath="$PROJECT_DIR$/web/articles-list.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles-recommend.jsp" afterPath="$PROJECT_DIR$/web/articles-recommend.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_cultural.jsp" afterPath="$PROJECT_DIR$/web/articles_type_cultural.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_education.jsp" afterPath="$PROJECT_DIR$/web/articles_type_education.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_entertainment.jsp" afterPath="$PROJECT_DIR$/web/articles_type_entertainment.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_films.jsp" afterPath="$PROJECT_DIR$/web/articles_type_films.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_game.jsp" afterPath="$PROJECT_DIR$/web/articles_type_game.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_physical.jsp" afterPath="$PROJECT_DIR$/web/articles_type_physical.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_science.jsp" afterPath="$PROJECT_DIR$/web/articles_type_science.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/articles_type_society.jsp" afterPath="$PROJECT_DIR$/web/articles_type_society.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/css/form-elements.css" afterPath="$PROJECT_DIR$/web/assets/css/form-elements.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/assets/js/placeholder.js" afterPath="$PROJECT_DIR$/web/assets/js/placeholder.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/custom5152.html" afterPath="$PROJECT_DIR$/web/css/custom5152.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/style.css" afterPath="$PROJECT_DIR$/web/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/logout.jsp" afterPath="$PROJECT_DIR$/web/logout.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/my.jsp" afterPath="$PROJECT_DIR$/web/my.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/type.txt" afterPath="$PROJECT_DIR$/web/type.txt" />
-    </list>
+    <list default="true" id="29376157-fddc-4cd5-a5a6-7777874d4598" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -718,12 +645,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1523596422880</updated>
-      <workItem from="1523596426171" duration="924000" />
+      <workItem from="1523596426171" duration="1128000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="924000" />
+    <option name="totallyTimeSpent" value="1128000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -747,7 +674,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29268292" sideWeight="0.17923763" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31015298" sideWeight="0.8207624" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31015298" sideWeight="0.8207624" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32933104" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
