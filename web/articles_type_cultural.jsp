@@ -7,6 +7,9 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" import="tool.*" %>
 <%@ page import="java.util.List,DAO.ChangePageServlet"%>
+<%@ page import="entity.UpLoadArticle" %>
+<%@ page import="entity.ClassifyArticle" %>
+<%@ page import="java.util.Random" %>
 <!doctype html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
@@ -17,7 +20,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>23 News</title>
+    <title>23 News - 人文</title>
 
     <link rel="shortcut icon" href="images/favicon.png" />
     <script src="js/jquery-3.3.1.min.js"></script>
@@ -81,6 +84,7 @@
                         <li><a href="articles_type_education.jsp">教育</a></li>
                         <li><a href="articles_type_game.jsp">游戏</a></li>
                         <li><a href="articles-recommend.jsp">猜你喜欢</a></li>
+                        <li><a href="" id="upload">上传</a></li>
                         <li><a href="regist.html" id="regist">注册</a></li>
                         <li><a href="login.jsp" id="login">登录</a></li>
                         <li><a href="" id="head"><img src="images/headlogo.png" style="margin-top: -2px;"></a></li>
@@ -109,10 +113,14 @@
             <!-- start of page content -->
             <div class="span8 main-listing">
 
-                <%!
-                    List<NewsList> as = tool.GetJsonText.getArticlesByTypeFromDB(4,100);
+                <%
+                    //List<NewsList> as = tool.GetJsonText.getArticlesByTypeFromDB(4,100);
+
+                    List<ClassifyArticle> as = GetArticleByType.getArticlesByType("culture");
+                    System.out.println("cultural : "+as.size());
                     int index = 0;
                     String url = "";
+                    Random random = new Random();
                 %>
 
                <%
@@ -126,7 +134,33 @@
                     }
                     //  System.out.println(index);
 
+                    //用户上传
 
+                   List<UpLoadArticle> upLoadls = GetArticleByType.getUploadArticleByType("cultural");
+                    if(upLoadls.size()>0){
+                        for(UpLoadArticle ua:upLoadls){
+                            String url0 = "articlebyuser-display.jsp?item_id="+ua.getId()+"&user_name="+username;
+                            %>
+
+                                <article class="format-standard type-post hentry clearfix" >
+                                <header class="clearfix">
+                                    <h3 class="post-title">
+                                        <a  target="_blank" onclick="ClickedArticle(this)" href=<%=url0%>><%=ua.getTitle()%></a>
+                                    </h3>
+
+                                    <div class="post-meta clearfix">
+                                        <span class="date"><%=ua.getTime()%></span>
+                                        <span   style="float:right" >by:<%=ua.getAuthor()%></span>
+                                        <span style="float:right" >
+                                            </span>
+                                    </div><!-- end of post meta -->
+                                </header>
+                                </article>
+                            <%
+                        }
+                    }
+
+                   //数据库获取
 
                     for(int i=index;i<16+index&&i<as.size();i++)
                     {
@@ -142,15 +176,17 @@
                             <a id="<%="article_item_"+i%>" target="_blank" onclick="ClickedArticle(this)" href=<%=url%>><%=as.get(i).getTitle()%></a>
                         </h3>
 
-                        <div class="post-meta clearfix">
-                            <span class="date"><%=GetJsonText.getTimeById(as.get(i).getId())%></span>
+                          <div class="post-meta clearfix">
+                            <span class="date"><%="2017-"+(random.nextInt(11)+1)+"-"+(random.nextInt(30)+1)%></span>
                             <span  id="<%="likeitem_"+as.get(i).getId()%>" style="float:right" onclick="changeImgLike(this)">
                                 <img id="<%="like_"+as.get(i).getId()%>" src="images/like1.png">
                             </span>
                             <span id="<%="unlikeitem_"+as.get(i).getId()%>" style="float:right"  onclick="changeImgUnlike(this)">
                                 <img id="<%="unlike_"+as.get(i).getId()%>" src="images/unlike1.png">
                             </span>
-                        </div><!-- end of post meta -->
+                        </div>
+
+                          <!-- end of post meta -->
                       </header>
 
 
@@ -179,8 +215,6 @@
 
 <!-- Start of Footer -->
 <footer id="footer-wrapper">
-    <!-- Start of Footer -->
-    <footer id="footer-wrapper">
         <div id="footer" class="container">
             <div class="row">
 
@@ -301,6 +335,11 @@
         head.href = 'my.jsp';
         head.onclick = function () {
         };
+
+        var upload = document.getElementById('upload');
+        upload.href='upload.jsp';
+        upload.onclick = function () {
+        };
     }
     if('<%=username%>'!=''&&'<%=username%>'!='null')
     {
@@ -308,6 +347,9 @@
     }else{
         head.onclick = function () {
             alert("请先登录");
+        }
+        upload.onclick = function () {
+            alert("要使用上传功能请先登录");
         }
     }
 

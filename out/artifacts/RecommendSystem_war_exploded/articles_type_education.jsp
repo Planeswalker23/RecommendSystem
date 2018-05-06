@@ -5,37 +5,41 @@
   Time: 20:32
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="tool.*" %>
-<%@ page import="java.util.List,DAO.ChangePageServlet"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="entity.ClassifyArticle" %>
+<%@ page import="entity.UpLoadArticle,tool.GetArticleByType"%>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Random" %>
 <!doctype html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
-<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
-<!--[if IE 8]>    <html class="lt-ie9" lang="en-US"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-US"> <!--<![endif]-->
 <head>
     <!-- META TAGS -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>23 News</title>
+    <title>23 News - 教育</title>
 
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.png"/>
     <script src="js/jquery-3.3.1.min.js"></script>
     <style>
 
-        #page{
-            margin-left:160px;
+        #page {
+            margin-left: 160px;
         }
 
     </style>
 
 
     <!-- Style Sheet-->
-    <link rel='stylesheet' id='bootstrap-css-css'  href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='responsive-css-css'  href='css/responsive5152.css?ver=1.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='pretty-photo-css-css'  href='js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
-    <link rel='stylesheet' id='main-css-css'  href='css/main5152.css?ver=1.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='custom-css-css'  href='css/custom5152.html?ver=1.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-css-css' href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='responsive-css-css' href='css/responsive5152.css?ver=1.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='pretty-photo-css-css' href='js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='main-css-css' href='css/main5152.css?ver=1.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='custom-css-css' href='css/custom5152.html?ver=1.0' type='text/css' media='all'/>
 
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -81,6 +85,7 @@
                         <li  class="current-menu-item"><a href="articles_type_education.jsp">教育</a></li>
                         <li><a href="articles_type_game.jsp">游戏</a></li>
                         <li><a href="articles-recommend.jsp">猜你喜欢</a></li>
+                        <li><a href="" id="upload">上传</a></li>
                         <li><a href="regist.html" id="regist">注册</a></li>
                         <li><a href="login.jsp" id="login">登录</a></li>
                         <li><a href="" id="head"><img src="images/headlogo.png" style="margin-top: -2px;"></a></li>
@@ -109,10 +114,13 @@
             <!-- start of page content -->
             <div class="span8 main-listing">
 
-                <%!
-                    List<NewsList> as = tool.GetJsonText.getArticlesByTypeFromDB(6,100);
+                <%
+                    List<ClassifyArticle> as = GetArticleByType.getArticlesByType("education");
+                    System.out.println("education : "+as.size());
+
                     int index = 0;
                     String url = "";
+                    Random random = new Random();
                 %>
 
                <%
@@ -126,6 +134,32 @@
                     }
                     //  System.out.println(index);
 
+                   //用户上传
+
+                   List<UpLoadArticle> upLoadls = GetArticleByType.getUploadArticleByType("education");
+                   if(upLoadls.size()>0){
+                       for(UpLoadArticle ua:upLoadls){
+                           String url0 = "articlebyuser-display.jsp?item_id="+ua.getId()+"&user_name="+username;
+               %>
+
+                <article class="format-standard type-post hentry clearfix" >
+                    <header class="clearfix">
+                        <h3 class="post-title">
+                            <a  target="_blank" onclick="ClickedArticle(this)" href=<%=url0%>><%=ua.getTitle()%></a>
+                        </h3>
+
+                        <div class="post-meta clearfix">
+                            <span class="date"><%=ua.getTime()%></span>
+                            <span   style="float:right" >by:<%=ua.getAuthor()%></span>
+                            <span style="float:right" ></span>
+                        </div><!-- end of post meta -->
+                    </header>
+                </article>
+                        <%
+                        }
+                    }
+
+                   //数据库获取
 
 
                     for(int i=index;i<16+index&&i<as.size();i++)
@@ -143,7 +177,7 @@
                         </h3>
 
                         <div class="post-meta clearfix">
-                            <span class="date"><%=GetJsonText.getTimeById(as.get(i).getId())%></span>
+                            <span class="date"><%="2017-"+(random.nextInt(11)+1)+"-"+(random.nextInt(30)+1)%></span>
                             <span  id="<%="likeitem_"+as.get(i).getId()%>" style="float:right" onclick="changeImgLike(this)">
                                 <img id="<%="like_"+as.get(i).getId()%>" src="images/like1.png">
                             </span>
@@ -180,9 +214,6 @@
 
 <!-- Start of Footer -->
 <footer id="footer-wrapper">
-
-    <!-- Start of Footer -->
-    <footer id="footer-wrapper">
         <div id="footer" class="container">
             <div class="row">
 
@@ -303,6 +334,11 @@
         head.href = 'my.jsp';
         head.onclick = function () {
         };
+
+        var upload = document.getElementById('upload');
+        upload.href='upload.jsp';
+        upload.onclick = function () {
+        };
     }
     if('<%=username%>'!=''&&'<%=username%>'!='null')
     {
@@ -310,6 +346,9 @@
     }else{
         head.onclick = function () {
             alert("请先登录");
+        }
+        upload.onclick = function () {
+            alert("要使用上传功能请先登录");
         }
     }
 

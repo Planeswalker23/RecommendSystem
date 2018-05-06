@@ -57,7 +57,9 @@ License URL: http://creativecommons.org/licenses/by/3.0/
         user = tool.GetUserInfor.getUserInforByName(name);
     %>
 
-	<h1 style="color: white;margin-top: 30px;">个人资料</h1>
+	<div>
+		<h1 style="color: white;margin-top: 30px;">个人资料<a href="articles-list.jsp"><font color="white" size="5px"><u>返回主页</u></font></a></h1>
+	</div>
 	<div class="main-agileits" style="margin-top: 30px;">
 		<div class="right-wthree" style="margin-top: 20px">
 			<img src="images/headpicture.png" alt="image" />

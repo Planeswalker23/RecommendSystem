@@ -79,7 +79,8 @@ public class Similarity {
         } catch (Exception e) {
             e.printStackTrace();
         }
-       // computeSimilarityMatrix(similarity,items);
+
+        //computeSimilarityMatrix(similarity,items);
 
         DataModel dataModel = new MySQLBooleanPrefJDBCDataModel(dataSource);
         ItemSimilarity similarity = new MySQLJDBCInMemoryItemSimilarity(dataSource);

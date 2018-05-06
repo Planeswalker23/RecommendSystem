@@ -5,29 +5,32 @@
   Time: 20:32
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="tool.*" %>
-<%@ page import="java.util.List,DAO.ChangePageServlet,recommend.*"%>
-<%@ page import="org.apache.mahout.cf.taste.recommender.RecommendedItem" %>
-<%@ page import="java.util.ArrayList,tool.*" %>
-<%@ page import="recommend.Filter" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="entity.ClassifyArticle" %>
+<%@ page import="org.apache.mahout.cf.taste.recommender.RecommendedItem,recommend.DB_io,tool.GetPopularArticles"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.util.List" %>
+<%@ page import="static recommend.Filter.*" %>
+<%@ page import="java.util.Random" %>
+<%@ page import="tool.JudgeFirstUse" %>
 <!doctype html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
-<!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
-<!--[if IE 8]>    <html class="lt-ie9" lang="en-US"> <![endif]-->
-<!--[if gt IE 8]><!--> <html lang="en-US"> <!--<![endif]-->
+<!--[if IE 7]> <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
+<!--[if IE 8]> <html class="lt-ie9" lang="en-US"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en-US"> <!--<![endif]-->
 <head>
     <!-- META TAGS -->
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>23 News</title>
+    <title>23 News - 猜你喜欢</title>
 
-    <link rel="shortcut icon" href="images/favicon.png" />
+    <link rel="shortcut icon" href="images/favicon.png"/>
     <script src="js/jquery-3.3.1.min.js"></script>
     <style>
 
-        #page{
-            margin-left:160px;
+        #page {
+            margin-left: 160px;
         }
 
     </style>
@@ -35,11 +38,12 @@
 
     <!-- Style Sheet-->
     <link rel="stylesheet" href="style.css"/>
-    <link rel='stylesheet' id='bootstrap-css-css'  href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='responsive-css-css'  href='css/responsive5152.css?ver=1.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='pretty-photo-css-css'  href='js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css' media='all' />
-    <link rel='stylesheet' id='main-css-css'  href='css/main5152.css?ver=1.0' type='text/css' media='all' />
-    <link rel='stylesheet' id='custom-css-css'  href='css/custom5152.html?ver=1.0' type='text/css' media='all' />
+    <link rel='stylesheet' id='bootstrap-css-css' href='css/bootstrap5152.css?ver=1.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='responsive-css-css' href='css/responsive5152.css?ver=1.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='pretty-photo-css-css' href='js/prettyphoto/prettyPhotoaeb9.css?ver=3.1.4' type='text/css'
+          media='all'/>
+    <link rel='stylesheet' id='main-css-css' href='css/main5152.css?ver=1.0' type='text/css' media='all'/>
+    <link rel='stylesheet' id='custom-css-css' href='css/custom5152.html?ver=1.0' type='text/css' media='all'/>
 
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -60,7 +64,7 @@
 
             <div class="logo-container">
                 <!-- Website Logo -->
-                <a href="articles-list.jsp"  title="23 News">
+                <a href="articles-list.jsp" title="23 News">
                     <img src="images/logo.png" alt="23 News">
                 </a>
 
@@ -80,7 +84,8 @@
                         <li><a href="articles_type_films.jsp">影视</a></li>
                         <li><a href="articles_type_education.jsp">教育</a></li>
                         <li><a href="articles_type_game.jsp">游戏</a></li>
-                        <li  class="current-menu-item"><a href="articles-recommend.jsp">猜你喜欢</a></li>
+                        <li class="current-menu-item"><a href="articles-recommend.jsp">猜你喜欢</a></li>
+                        <li><a href="" id="upload">上传</a></li>
                         <li><a href="regist.html" id="regist">注册</a></li>
                         <li><a href="login.jsp" id="login">登录</a></li>
                         <li><a href="" id="head"><img src="images/headlogo.png" style="margin-top: -2px;"></a></li>
@@ -105,7 +110,6 @@
 <div class="page-container" id="page">
     <div class="container">
         <div class="row">
-
             <!-- start of page content -->
             <div class="span8 main-listing">
                 <%
@@ -113,27 +117,29 @@
                     int index = 0;
                     int userid = -1;
                     String url = "";
+                    Random random = new Random();
                 %>
                 <%
                     //List<NewsList> as = tool.GetJsonText.getArticlesFromNet(1000,1010);
 
                     username = (String)session.getAttribute("username");
                     userid = DB_io.getIdByUsername(username);
-                    List<RecommendedItem> rmItem = recommend.Similarity.recommender(userid,100);
-                    List<NewsList> as = new ArrayList<>();
+                    List<RecommendedItem> rmItem = recommend.Similarity.recommender(userid,10);
+                    List<ClassifyArticle> as = new ArrayList<>();
                     String title = "";
                     //System.out.println(rmItem);
                 %>
 
                <%
-
-                   for(int i=0;i<rmItem.size();i++){
-                       NewsList ns = new NewsList();
-                       ns.setId((int) rmItem.get(i).getItemID());
-                       if(Filter.FilterByReadTime(userid,(int) rmItem.get(i).getItemID())||Filter.FilterByHate(userid,(int) rmItem.get(i).getItemID())){
-                           continue;
+                   if(rmItem != null) {
+                       for (int i = 0; i < rmItem.size(); i++) {
+                           ClassifyArticle ns = new ClassifyArticle();
+                           ns.setId((int) rmItem.get(i).getItemID());
+                           if (FilterByReadTime(userid, (int) rmItem.get(i).getItemID()) || FilterByHate(userid, (int) rmItem.get(i).getItemID())) {
+                               continue;
+                           }
+                           as.add(ns);
                        }
-                       as.add(ns);
                    }
                    //System.out.println("推荐列表"+as.get(0).getTitle());
                    //System.out.println("推荐列表"+as.get(1).getId());
@@ -148,10 +154,18 @@
                   // System.out.println(index);
                     if(username==null||username==""){
                         %>
-                            <h1>登陆后，才能进行推荐!</h1>
+                            <h1>登陆后，才能进行推荐！</h1>
                         <%
                     }
-                    for(int i=index;i<16+index&&i<rmItem.size()&&username!=null&&username!="";i++)
+
+
+
+
+                    if(false) {
+
+
+                    //已有行为日志
+                    for(int i=index;i<16+index&&i<as.size()&&username!=null&&username!="";i++)
                     {
                         url = "articles-display.jsp?item_id="+as.get(i).getId()+"&user_name="+username;
                         %>
@@ -159,16 +173,15 @@
                          <article class="format-standard type-post hentry clearfix">
 
                       <header class="clearfix">
-                        <%
-                            title = tool.GetTitleById.getTitle(as.get(i).getId());
-                        %>
+
                         <h3 class="post-title">
-                            <a id="<%="article_item_"+i%>" target="_blank" onclick="ClickedArticle(this)" href=<%=url%>><%=title%></a>
+                            <a id="<%="article_item_"+i%>" target="_blank" onclick="ClickedArticle(this)" href=<%=url%>><%=as.get(i).getTitle()%></a>
+
                         </h3>
 
 
                           <div class="post-meta clearfix">
-                              <span class="date"><%=GetJsonText.getTimeById(as.get(i).getId())%></span>
+                              <span class="date"><%="2017-"+(random.nextInt(11)+1)+"-"+(random.nextInt(30)+1)%></span>
                               <span  id="<%="likeitem_"+as.get(i).getId()%>" style="float:right" onclick="changeImgLike(this)">
                                 <img id="<%="like_"+as.get(i).getId()%>" src="images/like1.png">
                             </span>
@@ -182,14 +195,54 @@
 
 
                          </article>
+                         <div id="pagination">
+                              <a href="articles-recommend.jsp" class="btn" onclick="onNext()">换一批 »</a>
+                        </div>
+                <%
+                    }
+                    }else{
+
+                        ///topN 冷启动
+                        boolean flag = JudgeFirstUse.IsFirstUse(username);
+
+                        List<ClassifyArticle> ls = GetPopularArticles.GetArticle();
+                        for(int i=index;i<16+index&&username!=null&&username!="";i++)
+                        {
+
+                            url = "articles-display.jsp?item_id="+ls.get(i).getId()+"&user_name="+username;
+
+                %>
+
+                <article class="format-standard type-post hentry clearfix" id="<%="article_"+i%>">
+
+                    <header class="clearfix">
+
+                        <h3 class="post-title">
+                            <a id="<%="article_item_"+i%>" target="_blank" onclick="ClickedArticle(this)" href=<%=url%>><%= ls.get(i).getTitle()%></a>
+                        </h3>
+
+                        <div class="post-meta clearfix">
+                            <span class="date"><%="2018-"+(random.nextInt(4)+1)+"-"+(random.nextInt(30)+1)%></span>
+                            <span  id="<%="likeitem_"+ls.get(i).getId()%>" style="float:right" onclick="changeImgLike(this)">
+                                <img id="<%="like_"+ls.get(i).getId()%>" src="images/like1.png">
+                            </span>
+                            <span id="<%="unlikeitem_"+ls.get(i).getId()%>" style="float:right"  onclick="changeImgUnlike(this)">
+                                <img id="<%="unlike_"+ls.get(i).getId()%>" src="images/unlike1.png">
+                            </span>
+                        </div><!-- end of post meta -->
+
+                    </header>
+
+
+                </article>
 
                 <%
+                        }
+
                     }
                %>
 
-                <div id="pagination">
-                    <a href="articles-recommend.jsp" class="btn" onclick="onNext()">换一批 »</a>
-                </div>
+
             </div>
             <!-- end of page content -->
 
@@ -214,6 +267,7 @@
                             <li>2.浏览热门新闻或自己偏好的新闻</li>
                             <li>3.进入猜你喜欢查看为您推荐的新闻</li>
                             <li>4.查看本站为您建立的偏好模型</li>
+                            <li>5.上传自己的原创新闻</li>
                         </ul>
                     </div>
                 </section>
@@ -312,6 +366,11 @@
         head.href = 'my.jsp';
         head.onclick = function () {
         };
+
+        var upload = document.getElementById('upload');
+        upload.href='upload.jsp';
+        upload.onclick = function () {
+        };
     }
     if('<%=username%>'!=''&&'<%=username%>'!='null')
     {
@@ -319,6 +378,9 @@
     }else{
         head.onclick = function () {
             alert("请先登录");
+        }
+        upload.onclick = function () {
+            alert("使用上传功能请先登录");
         }
     }
 

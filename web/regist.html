@@ -29,6 +29,32 @@
         <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png">
         <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png">
 
+
+        <script type="text/javascript">
+            function validateForm(){
+                var user=document.forms["form"]["username"].value;
+                var regex = /^[A-Za-z0-9]{6,18}$/;  //用户名格式正则表达式
+                if(!regex.test(user)){
+                    alert("用户名不合规范,可输入字母或数字，长度6~18")
+                    return false;
+                }
+
+                var pwd=document.forms["form"]["password"].value;
+                if(pwd.length > 20 || pwd.length < 6){
+                    alert("密码长度应在6~20位");
+                    return false;
+                }
+
+                var email=document.forms["form"]["email"].value;
+                var atpos=email.indexOf("@");
+                var dotpos=email.lastIndexOf(".");
+                if (atpos<1 || dotpos<atpos+2 || dotpos+2>=email.length){
+                    alert("不是一个有效的e-mail地址");
+                    return false;
+                }
+            }
+        </script>
+
     </head>
 
     <body>
@@ -50,13 +76,12 @@
                         <div class="col-sm-6 col-sm-offset-3 form-box">
 
                             <div class="form-bottom">
-			                    <form role="form" action="UserServlet" method="post" class="login-form">
+			                    <form id='form' role="form" action="UserServlet" method="post" class="login-form">
 			                    	<div class="form-group">
-                                        <input type="text" class="form-control" placeholder="请输入用户名" name="username">
+                                        <input type="text" class="form-control" placeholder="请输入用户名，字母或数字，长度6~18" name="username">
 			                        </div>
 			                        <div class="form-group">
-                                        <input type="password" class="form-control" placeholder="请输入密码" name="password">
-			                        	<!--<input type="password" name="password" placeholder="Password..." class="form-password form-control" id="form-password">-->
+                                        <input type="password" class="form-control" placeholder="请输入密码，长度6~20" name="password">
 			                        </div>
                                     <div class="form-group">
                                         <input type="text" class="form-control" placeholder="请输入你的故乡，如浙江杭州" name="hometown">
@@ -87,7 +112,7 @@
                                         <label><input type="checkbox" name="hobby" value="read">阅读</label>&nbsp;
                                     </div>
 
-			                        <button type="submit" class="btn">注册</button>
+			                        <button type="submit" class="btn" onclick="return validateForm()">注册</button>
 			                    </form>
 		                    </div>
                         </div>

@@ -49,9 +49,9 @@ public class loginServlet extends HttpServlet {
 		response.setHeader("content-type","text/html;charset=UTF-8");
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
-		String passwd = null;
+		String passwd = "";
 		Connection conn = (Connection) DBUtil.getConnection();
-		
+		boolean hasAccount = false;
 		String sql = "select * from user where username = ?";
 		try {
 			PreparedStatement ps = conn.prepareStatement(sql);
@@ -60,9 +60,10 @@ public class loginServlet extends HttpServlet {
 			while(rs.next()){
 				passwd = rs.getString("password");
 				//System.out.println(passwd);
+				hasAccount = true;
 			}
 			
-			if(passwd.equals(password)){
+			if(passwd.equals(password)&&hasAccount==true){
 				out.write("login success");
 				//request.getRequestDispatcher("/index.html").forward(request, response);
                 HttpSession session = request.getSession();
@@ -71,11 +72,11 @@ public class loginServlet extends HttpServlet {
 			}else{
 				out.write("login failed");
 				out.write("<script type='text/javascript'>");
-				out.write("var r=confirm('�������������');");
+				out.write("var r=confirm('password error or account not exist');");
 				out.write("if (r==true)");
 				out.write("{");
 				out.write("console.log('ok');");
-				out.write(" window.location.href='login.html';");
+				out.write(" window.location.href='login.jsp';");
 				out.write("}");
 				out.write("else");
 				out.write("{");

@@ -10,6 +10,7 @@
 <%@ page import="org.apache.mahout.cf.taste.recommender.RecommendedItem" %>
 <%@ page import="java.util.ArrayList,tool.*" %>
 <%@ page import="static recommend.DB_io.getIdByUsername" %>
+<%@ page import="entity.ClassifyArticle" %>
 <!doctype html>
 <!--[if lt IE 7]> <html class="lt-ie9 lt-ie8 lt-ie7" lang="en-US"> <![endif]-->
 <!--[if IE 7]>    <html class="lt-ie9 lt-ie8" lang="en-US"> <![endif]-->
@@ -81,9 +82,10 @@
                         <li><a href="articles_type_education.jsp">教育</a></li>
                         <li><a href="articles_type_game.jsp">游戏</a></li>
                         <li><a href="articles-recommend.jsp">猜你喜欢</a></li>
+                        <li><a href="" id="upload">上传</a></li>
                         <li><a href="regist.html" id="regist">注册</a></li>
                         <li><a href="login.jsp" id="login">登录</a></li>
-                        <li><a href="" id="head"><img src="images/headlogo.png" style="margin-top: -2px;"></a></li>
+                        <li><a href="" id="head" onclick="tomyjsp()"><img src="images/headlogo.png" style="margin-top: -2px;"></a></li>
                     </ul>
                 </div>
             </nav>
@@ -109,7 +111,7 @@
 
     item_id = Integer.parseInt(item_id0);
 
-    NewsList item = tool.GetJsonText.getNewsFromDB(item_id);
+    ClassifyArticle item = GetDetailContent.getContent(item_id);
 
     // List<RecommendedItem> rmItem = recommend.Similarity.recommender(user_id,16);
     //List<NewsList> as = new ArrayList<>();
@@ -132,7 +134,8 @@
             <!-- start of page content -->
             <div class="span8 main-listing">
                 <%=
-                item.getContent()
+                    "<font style=\"font-size:20px;line-height: 45px;font-weight: normal;\">" + item.getContent() + "</font>"
+                    //TurnToHtml.turn(item.getContent())
                 %>
             </div>
             <!-- end of page content -->
@@ -231,6 +234,11 @@
         var login = document.getElementById('login');
         login.href = 'logout.jsp';
         login.innerHTML = '注销';
+
+        var upload = document.getElementById('upload');
+        upload.href='upload.jsp';
+        upload.onclick = function () {
+        };
     }
     if('<%=username%>'!=''&&'<%=username%>'!='null')
     {
@@ -260,24 +268,29 @@
                  }
           });
         };
-
+    }else{
+         head.onclick = function () {
+             alert("请先登录");
+         }
+         upload.onclick = function () {
+             alert("使用上传功能请先登录");
+         }
     }
 
     function changeImgLike(obj){
         var img = document.getElementById(obj.id);
 
         //console.log(img);
-        if (img.src.indexOf('like1') > 0) {
-            img.src="images/titlelike2.png";
-        } else {
-            img.src="images/titlelike1.png";
-        }
-
         if('<%=username%>'!=''&&'<%=username%>'!='null'){
             var s = obj.id;
             var n = s.indexOf('_');
             var id = s.substring(n+1);
 
+            if (img.src.indexOf('like1') > 0) {
+                img.src="images/titlelike2.png";
+            } else {
+                img.src="images/titlelike1.png";
+            }
             $.ajax({
                 type:"POST",
                 url:"LogClickedLikeServlet",
@@ -286,17 +299,13 @@
                     console.log(data);
                 }
             });
+        }else{
+            alert("使用点踩功能请先登录");
         }
     }
 
     function changeImgUnlike(obj){
         var img = document.getElementById(obj.id);
-
-        if (img.src.indexOf('unlike1') > 0) {
-            img.src="images/titleunlike2.png";
-        } else {
-            img.src="images/titleunlike1.png";
-        }
 
         if('<%=username%>'!=''&&'<%=username%>'!='null'){
             var s = obj.id;
@@ -311,6 +320,21 @@
                     console.log(data);
                 }
             });
+            if (img.src.indexOf('unlike1') > 0) {
+                img.src="images/titleunlike2.png";
+            } else {
+                img.src="images/titleunlike1.png";
+            }
+        }else{
+            alert("使用点踩功能请先登录");
+        }
+    }
+
+    function tomyjsp() {
+        if('<%=username%>'!=''&&'<%=username%>'!='null') {
+            head.href = 'my.jsp';
+        }else{
+            alert("请先登录");
         }
     }
 
